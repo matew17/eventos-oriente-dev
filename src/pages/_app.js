@@ -3,16 +3,18 @@ import { Provider } from "react-redux";
 
 import store from "@store/index";
 
-import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { onAuthStateChanged } from "firebase/auth";
+
+import { firebaseAuth } from "@app/firebase/firebase-instance";
+import Layout from "@app/components/Layout/Layout";
 
 import "../styles/globals.scss";
 
-function MyApp({ Component, pageProps }) {
+function MyApp(props) {
     const [isAuth, setIsAuth] = useState(false);
-    const auth = getAuth();
 
     useEffect(() => {
-        onAuthStateChanged(auth, (user) => {
+        onAuthStateChanged(firebaseAuth, (user) => {
             if (user?.uid) {
                 console.log(user);
                 setIsAuth(true);
@@ -26,7 +28,7 @@ function MyApp({ Component, pageProps }) {
 
     return (
         <Provider store={store}>
-            <Component {...pageProps} />
+            <Layout {...props} />
         </Provider>
     );
 }

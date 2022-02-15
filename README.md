@@ -20,6 +20,10 @@ Aplicacion para crear eventos futuros de nuestra comunidad.
 npm install @reduxjs/toolkit
 ```
 
-## Async example
+#### Async example
 
 [async with redux toolkit](https://github.com/lyhd/react-redux-toolkit/blob/main/src/App.js)
+
+### Firebase
+
+[Firebase Documentation](https://firebase.google.com/docs/auth/web/google-signin?authuser=1)
